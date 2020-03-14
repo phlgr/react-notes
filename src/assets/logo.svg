@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64.058" height="64.058" viewBox="0 0 64.058 64.058">
+  <defs>
+    <filter id="Icon_awesome-sticky-note" x="0" y="0" width="64.058" height="64.058" filterUnits="userSpaceOnUse">
+      <feOffset dx="3" dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="0.5" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Icon_awesome-sticky-note)">
+    <path id="Icon_awesome-sticky-note-2" data-name="Icon awesome-sticky-note" d="M41.478,40.537h18.08V5.441A3.183,3.183,0,0,0,56.367,2.25H3.191A3.183,3.183,0,0,0,0,5.441V58.617a3.183,3.183,0,0,0,3.191,3.191h35.1V43.728A3.2,3.2,0,0,1,41.478,40.537Zm17.15,7.312L45.6,60.877a3.188,3.188,0,0,1-2.26.931h-.8V44.791H59.558V45.6A3.18,3.18,0,0,1,58.627,47.849Z" transform="translate(0 -2.25)" fill="#b5e8ff"/>
+  </g>
+</svg>
