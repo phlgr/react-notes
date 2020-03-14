@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './App.css';
 import Header from './Header';
-import Button from './components/Button';
+import Home from './Home';
 
 function App() {
   return (
@@ -12,8 +12,10 @@ function App() {
       </Link>
       <Switch>
         <Route exact path="/">
-          <Button>Hallo!</Button>
+          <Home />
         </Route>
+        <Route path="/newNote"></Route>
+        <Route path="/allNotes"></Route>
       </Switch>
     </Router>
   );
