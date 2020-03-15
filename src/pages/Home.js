@@ -1,8 +1,8 @@
 import React from 'react';
-import Button from './components/Button';
+import Button from '../components/Button';
 import './Home.css';
-import NewNoteImg from './assets/new_note.svg';
-import AllNotesImg from './assets/all_notes.svg';
+import NewNoteImg from '../assets/new_note.svg';
+import AllNotesImg from '../assets/all_notes.svg';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
