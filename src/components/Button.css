@@ -1,0 +1,36 @@
+.btn-primary {
+  font-family: 'Amatic SC';
+  font-size: 2.2rem;
+  box-shadow: 3px 3px 6px lightgrey;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  padding: 5px 25px;
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+.btn-image {
+  max-width: 25px;
+  margin-right: 10px;
+}
+.btn-primary:active {
+  outline: none;
+  border: none;
+}
+
+.btn-green {
+  background: #cfffdb;
+}
+.btn-green:active {
+  background: #b8ffcb;
+  transition: 0.1s;
+}
+
+.btn-purple {
+  background: #e3c2ff;
+}
+.btn-purple:active {
+  background: #d9affd;
+  transition: 0.1s;
+}
