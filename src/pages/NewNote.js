@@ -3,6 +3,7 @@ import './NewNote.css';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import SaveNoteImg from '../assets/SaveNoteImg.svg';
+import NoteInput from '../components/NoteInput';
 
 export default function NewNote() {
   const [title, setTitle] = React.useState('');
@@ -29,21 +30,15 @@ export default function NewNote() {
   return (
     <form className="NewNote__container" onSubmit={handleSubmit}>
       <div className="container__inputs">
-        <input
-          defaultValue={title}
-          onChange={value => setTitle(value.target.value)}
-          className="input__title"
-          type="text"
-          placeholder="Title..."
-        />
-        <textarea
-          defaultValue={text}
-          onChange={value => {
-            setText(value.target.value);
+        <NoteInput
+          note={{
+            title,
+            text
           }}
-          className="input__text"
-          type="textarea"
-          placeholder="Enter your note..."
+          onChange={note => {
+            setTitle(note.title);
+            setText(note.text);
+          }}
         />
       </div>
       <Link to="/allNotes" onClick={handleSubmit}>

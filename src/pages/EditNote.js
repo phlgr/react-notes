@@ -1,10 +1,13 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import Button from '../components/Button';
 import SaveNoteImg from '../assets/SaveNoteImg.svg';
+import NoteInput from '../components/NoteInput';
 
 export default function EditNote() {
   const { noteId } = useParams();
+  const history = useHistory();
+
   const [title, setTitle] = React.useState('');
   const [text, setText] = React.useState('');
 
@@ -20,6 +23,8 @@ export default function EditNote() {
   }, [noteId]);
 
   async function handleSubmit(event) {
+    event.preventDefault();
+
     const responseDelete = await fetch(
       `http://localhost:4000/notes/${noteId}`,
       {
@@ -44,32 +49,29 @@ export default function EditNote() {
     });
     const createdPoll = await response.json();
     alert(`Created note with the id ${createdPoll.id}`);
+    history.push('/allNotes');
   }
 
   return (
-    <form className="NewNote__container">
+    <form className="NewNote__container" onSubmit={handleSubmit}>
       <div className="container__inputs">
-        <input
-          defaultValue={title}
-          onChange={value => setTitle(value.target.value)}
-          className="input__title"
-        />
-        <textarea
-          defaultValue={text}
-          onChange={value => setText(value.target.value)}
-          className="input__text"
-          type="textarea"
-          placeholder="Enter your note..."
+        <NoteInput
+          note={{
+            title,
+            text
+          }}
+          onChange={note => {
+            setTitle(note.title);
+            setText(note.text);
+          }}
         />
       </div>
-      <Link to="/allNotes" onClick={handleSubmit}>
-        <Button
-          type="submit"
-          theme="green"
-          img={SaveNoteImg}
-          label="Edit and Save"
-        />
-      </Link>
+      <Button
+        type="submit"
+        theme="green"
+        img={SaveNoteImg}
+        label="Edit and Save"
+      />
     </form>
   );
 }
