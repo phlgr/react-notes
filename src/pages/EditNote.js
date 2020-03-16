@@ -3,6 +3,19 @@ import { useParams, useHistory } from 'react-router-dom';
 import Button from '../components/Button';
 import SaveNoteImg from '../assets/SaveNoteImg.svg';
 import NoteInput from '../components/NoteInput';
+import styled from '@emotion/styled';
+
+const Form = styled.form`
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const InputContainer = styled.div`
+  display: flex;
+  flex-flow: column;
+`;
 
 export default function EditNote() {
   const { noteId } = useParams();
@@ -53,8 +66,8 @@ export default function EditNote() {
   }
 
   return (
-    <form className="NewNote__container" onSubmit={handleSubmit}>
-      <div className="container__inputs">
+    <Form onSubmit={handleSubmit}>
+      <InputContainer>
         <NoteInput
           note={{
             title,
@@ -65,13 +78,13 @@ export default function EditNote() {
             setText(note.text);
           }}
         />
-      </div>
+      </InputContainer>
       <Button
         type="submit"
         theme="green"
         img={SaveNoteImg}
         label="Edit and Save"
       />
-    </form>
+    </Form>
   );
 }

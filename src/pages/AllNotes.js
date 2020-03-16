@@ -1,6 +1,12 @@
 import React from 'react';
-import './AllNotes.css';
 import Card from '../components/Card';
+import styled from '@emotion/styled';
+
+const CardContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+`;
 
 export default function AllNotes() {
   const [notes, setNotes] = React.useState(null);
@@ -15,10 +21,10 @@ export default function AllNotes() {
   }, []);
 
   return (
-    <div className="card__container">
+    <CardContainer>
       {notes?.map(note => (
         <Card key={note.id} note={note} />
       ))}
-    </div>
+    </CardContainer>
   );
 }

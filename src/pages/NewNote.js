@@ -1,9 +1,21 @@
 import React from 'react';
-import './NewNote.css';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import SaveNoteImg from '../assets/SaveNoteImg.svg';
 import NoteInput from '../components/NoteInput';
+import styled from '@emotion/styled';
+
+const Form = styled.form`
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const InputContainer = styled.div`
+  display: flex;
+  flex-flow: column;
+`;
 
 export default function NewNote() {
   const [title, setTitle] = React.useState('');
@@ -28,8 +40,8 @@ export default function NewNote() {
   }
 
   return (
-    <form className="NewNote__container" onSubmit={handleSubmit}>
-      <div className="container__inputs">
+    <Form className="NewNote__container" onSubmit={handleSubmit}>
+      <InputContainer>
         <NoteInput
           note={{
             title,
@@ -40,10 +52,10 @@ export default function NewNote() {
             setText(note.text);
           }}
         />
-      </div>
+      </InputContainer>
       <Link to="/allNotes" onClick={handleSubmit}>
         <Button type="submit" theme="green" img={SaveNoteImg} label="Save" />
       </Link>
-    </form>
+    </Form>
   );
 }
